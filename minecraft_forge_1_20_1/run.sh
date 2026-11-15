@@ -24,9 +24,9 @@ cd "${SERVER_DIR}" || exit 1
 # ---- Paper-Server herunterladen (nur wenn noch nicht vorhanden) ----
 if [ ! -f paper.jar ]; then
     bashio::log.info "Lade PaperMC ${MC_VERSION} herunter..."
-    PAPER_URL="$(curl -fsSL -A "${UA}" "https://fill.papermc.io/v3/projects/paper/versions/${MC_VERSION}/builds/latest" \
+    PAPER_URL="$(curl -fsSL --retry 3 --connect-timeout 20 -A "${UA}" "https://fill.papermc.io/v3/projects/paper/versions/${MC_VERSION}/builds/latest" \
         | sed 's/.*"server:default"//' | grep -o 'https://[^"]*' | head -1)"
-    if [ -z "${PAPER_URL}" ] || ! curl -fsSL -A "${UA}" -o paper.jar.tmp "${PAPER_URL}"; then
+    if [ -z "${PAPER_URL}" ] || ! curl -fsSL --retry 3 --connect-timeout 20 -A "${UA}" -o paper.jar.tmp "${PAPER_URL}"; then
         bashio::log.fatal "PaperMC-Download fehlgeschlagen. Internetverbindung pruefen."
         rm -f paper.jar.tmp
         exit 1
@@ -50,7 +50,7 @@ get_modrinth_plugin() {
         bashio::log.warning "Kein Paper-Build fuer ${slug} gefunden - uebersprungen."
         return 1
     fi
-    if curl -fsSL -A "${UA}" -o "${PLUGIN_DIR}/${target}.tmp" "${url}"; then
+    if curl -fsSL --retry 3 --connect-timeout 20 -A "${UA}" -o "${PLUGIN_DIR}/${target}.tmp" "${url}"; then
         mv "${PLUGIN_DIR}/${target}.tmp" "${PLUGIN_DIR}/${target}"
         bashio::log.info "Plugin ${slug} installiert."
     else
@@ -69,7 +69,7 @@ get_geyser_plugin() {
     if [ -f "${PLUGIN_DIR}/${target}" ]; then
         return 0
     fi
-    if curl -fsSL -A "${UA}" -o "${PLUGIN_DIR}/${target}.tmp" \
+    if curl -fsSL --retry 3 --connect-timeout 20 -A "${UA}" -o "${PLUGIN_DIR}/${target}.tmp" \
         "https://download.geysermc.org/v2/projects/${project}/versions/latest/builds/latest/downloads/spigot"; then
         mv "${PLUGIN_DIR}/${target}.tmp" "${PLUGIN_DIR}/${target}"
         bashio::log.info "Plugin ${project} installiert."
