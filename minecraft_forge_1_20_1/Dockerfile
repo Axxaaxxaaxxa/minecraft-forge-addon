@@ -3,12 +3,13 @@ FROM ${BUILD_FROM}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Java 17 wird für Minecraft 1.20.1 / Forge benötigt
+# Java 17 wird fuer Minecraft 1.20.1 / Paper benoetigt, jq fuer die Modrinth-API
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         openjdk-17-jre-headless \
         curl \
         ca-certificates \
+        jq \
     && rm -rf /var/lib/apt/lists/*
 
 COPY run.sh /run.sh

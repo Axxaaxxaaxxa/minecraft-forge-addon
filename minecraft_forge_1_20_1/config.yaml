@@ -1,7 +1,7 @@
-name: "Minecraft Forge 1.20.1"
-version: "1.0.2"
+name: "Minecraft Paper 1.20.1 + Bedrock"
+version: "2.0.0"
 slug: minecraft_forge_1_20_1
-description: "Minecraft Java Server mit Forge 1.20.1 für Mods"
+description: "PaperMC 1.20.1 mit ViaVersion, Geyser und Floodgate (Java + Bedrock)"
 arch:
   - amd64
   - aarch64
@@ -10,11 +10,11 @@ boot: auto
 init: false
 ports:
   25565/tcp: 25565
+  19132/udp: 19132
 map:
   - share:rw
 options:
   eula: false
-  forge_version: "47.3.0"
   memory: "1G"
   motd: "Home Assistant Forge Server"
   max_players: 3
@@ -28,7 +28,6 @@ options:
   java_args: ""
 schema:
   eula: bool
-  forge_version: str
   memory: str
   motd: str
   max_players: int(1,100)
