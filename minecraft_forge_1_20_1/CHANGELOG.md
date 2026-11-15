@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+- Fix: PaperMC-Download-URL wurde nicht gefunden.
+- Downloads mit Wiederholungen und Timeouts.
+
 ## 2.0.0
 - **Breaking:** Forge wurde durch PaperMC 1.20.1 ersetzt. Forge-Mods funktionieren nicht mehr, Bukkit/Paper-Plugins stattdessen.
 - Neue Plugins: ViaVersion, ViaBackwards, ViaRewind (ältere Clients), Geyser + Floodgate (Bedrock-Spieler, Port 19132/udp).
