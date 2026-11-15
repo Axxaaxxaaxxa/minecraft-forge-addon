@@ -25,7 +25,7 @@ cd "${SERVER_DIR}" || exit 1
 if [ ! -f paper.jar ]; then
     bashio::log.info "Lade PaperMC ${MC_VERSION} herunter..."
     PAPER_URL="$(curl -fsSL -A "${UA}" "https://fill.papermc.io/v3/projects/paper/versions/${MC_VERSION}/builds/latest" \
-        | grep -o '"server:default":{[^}]*"url":"[^"]*"' | grep -o 'https[^"]*' | head -1)"
+        | sed 's/.*"server:default"//' | grep -o 'https://[^"]*' | head -1)"
     if [ -z "${PAPER_URL}" ] || ! curl -fsSL -A "${UA}" -o paper.jar.tmp "${PAPER_URL}"; then
         bashio::log.fatal "PaperMC-Download fehlgeschlagen. Internetverbindung pruefen."
         rm -f paper.jar.tmp
