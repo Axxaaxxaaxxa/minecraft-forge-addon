@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.5
+- Add-on läuft mit `host_network: true`, damit Bedrock-UDP nicht über den Docker-Proxy geht. Die Port-Einträge entfallen (Ports 25565/tcp, 19132/udp, 19133/udp werden direkt genutzt).
+
 ## 2.0.4
 - Port 19133/udp (NetherNet für Bedrock) wird freigegeben.
 
