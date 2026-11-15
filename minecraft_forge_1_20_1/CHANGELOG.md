@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.2
+- Standardwerte weiter reduziert: `memory` 1G, `max_players` 3, `view_distance` 4.
+
 ## 1.0.1
 - Standardwerte für Raspberry Pi mit 4 GB RAM angepasst: `memory` 2G, `max_players` 5, `view_distance` 6.
 

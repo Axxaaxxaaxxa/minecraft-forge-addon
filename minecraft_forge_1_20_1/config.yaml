@@ -1,5 +1,5 @@
 name: "Minecraft Forge 1.20.1"
-version: "1.0.1"
+version: "1.0.2"
 slug: minecraft_forge_1_20_1
 description: "Minecraft Java Server mit Forge 1.20.1 für Mods"
 arch:
@@ -15,13 +15,13 @@ map:
 options:
   eula: false
   forge_version: "47.3.0"
-  memory: "2G"
+  memory: "1G"
   motd: "Home Assistant Forge Server"
-  max_players: 5
+  max_players: 3
   difficulty: normal
   gamemode: survival
   online_mode: true
-  view_distance: 6
+  view_distance: 4
   level_name: "world"
   level_seed: ""
   pvp: true
