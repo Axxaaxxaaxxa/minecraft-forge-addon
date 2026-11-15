@@ -1,5 +1,5 @@
 name: "Minecraft Paper 1.20.1 + Bedrock"
-version: "2.0.1"
+version: "2.0.2"
 slug: minecraft_forge_1_20_1
 description: "PaperMC 1.20.1 mit ViaVersion, Geyser und Floodgate (Java + Bedrock)"
 arch:

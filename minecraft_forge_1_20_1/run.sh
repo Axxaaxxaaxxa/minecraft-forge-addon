@@ -65,12 +65,12 @@ get_modrinth_plugin viarewind    ViaRewind.jar
 
 # ---- Geyser + Floodgate (GeyserMC-Download-API) ----
 get_geyser_plugin() {
-    local project="$1" target="$2"
+    local project="$1" target="$2" version="$3"
     if [ -f "${PLUGIN_DIR}/${target}" ]; then
         return 0
     fi
     if curl -fsSL --retry 3 --connect-timeout 20 -A "${UA}" -o "${PLUGIN_DIR}/${target}.tmp" \
-        "https://download.geysermc.org/v2/projects/${project}/versions/latest/builds/latest/downloads/spigot"; then
+        "https://download.geysermc.org/v2/projects/${project}/versions/${version}/builds/latest/downloads/spigot"; then
         mv "${PLUGIN_DIR}/${target}.tmp" "${PLUGIN_DIR}/${target}"
         bashio::log.info "Plugin ${project} installiert."
     else
@@ -79,8 +79,9 @@ get_geyser_plugin() {
     fi
 }
 
-get_geyser_plugin geyser    Geyser-Spigot.jar
-get_geyser_plugin floodgate Floodgate-Spigot.jar
+# Geyser ab 2.10 braucht Java 21. Auf Java 17 ist 2.9.x die letzte passende Version.
+get_geyser_plugin geyser    Geyser-Spigot.jar 2.9.6
+get_geyser_plugin floodgate Floodgate-Spigot.jar latest
 
 # ---- Geyser: Floodgate-Authentifizierung aktivieren (nur wenn Config schon existiert) ----
 GEYSER_CFG="${PLUGIN_DIR}/Geyser-Spigot/config.yml"
