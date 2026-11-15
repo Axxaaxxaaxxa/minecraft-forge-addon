@@ -79,8 +79,7 @@ get_geyser_plugin() {
     fi
 }
 
-# Geyser ab 2.10 braucht Java 21. Auf Java 17 ist 2.9.x die letzte passende Version.
-get_geyser_plugin geyser    Geyser-Spigot.jar 2.9.6
+get_geyser_plugin geyser    Geyser-Spigot.jar latest
 get_geyser_plugin floodgate Floodgate-Spigot.jar latest
 
 # ---- Geyser: Floodgate-Authentifizierung aktivieren (nur wenn Config schon existiert) ----

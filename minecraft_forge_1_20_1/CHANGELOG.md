@@ -1,7 +1,10 @@
 # Changelog
 
+## 2.0.3
+- Basis-Image auf Debian trixie umgestellt, Java 21 statt 17. Damit funktioniert die aktuelle Geyser-Version.
+
 ## 2.0.2
-- Geyser auf 2.9.6 festgelegt: neuere Versionen brauchen Java 21, das Add-on hat Java 17.
+- Geyser auf 2.9.6 festgelegt (Zwischenlösung, jetzt durch 2.0.3 ersetzt).
 
 ## 2.0.1
 - Fix: PaperMC-Download-URL wurde nicht gefunden.
