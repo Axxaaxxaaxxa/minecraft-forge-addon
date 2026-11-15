@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.4
+- Port 19133/udp (NetherNet für Bedrock) wird freigegeben.
+
 ## 2.0.3
 - Basis-Image auf Debian trixie umgestellt, Java 21 statt 17. Damit funktioniert die aktuelle Geyser-Version.
 
