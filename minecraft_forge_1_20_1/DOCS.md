@@ -6,7 +6,11 @@ Betreibt einen Minecraft-Java-Server mit **Forge 1.20.1** in Home Assistant.
 
 1. Add-on installieren und starten lassen (der erste Start dauert wegen Forge-Installation und Download einige Minuten).
 2. In den Optionen **`eula` auf `true`** setzen (du akzeptierst damit die [Minecraft-EULA](https://aka.ms/MinecraftEULA)).
-3. Optional Speicher (`memory`, z.B. `4G`, `6G`), MOTD, Schwierigkeit usw. anpassen.
+3. Optional Speicher (`memory`), MOTD, Schwierigkeit usw. anpassen.
+
+### Hinweis für Raspberry Pi (4 GB RAM)
+
+Auf einem Pi mit 4 GB RAM braucht Home Assistant OS selbst schon ~1–1,5 GB. Für den Minecraft-Server bleiben also maximal ca. **2 GB** sinnvoll. Die Standardwerte sind darauf abgestimmt: `memory: 2G`, `max_players: 5`, `view_distance: 6`. Mehr RAM oder viele Mods führen schnell zu Lags oder Abstürzen. Bei weiteren laufenden Add-ons den Wert eher auf `1536M` senken.
 4. Add-on neu starten.
 5. Im Minecraft-Client (Forge 1.20.1 aktiviert) die IP von Home Assistant mit Port **25565** eintragen.
 
@@ -25,7 +29,7 @@ Der Server-Ordner liegt unter `share/minecraft-forge/` (über Samba oder den Fil
 |---|---|
 | `eula` | Muss `true` sein, sonst startet der Server nicht. |
 | `forge_version` | Forge-Version ohne MC-Version, z.B. `47.3.0`. Änderung löst eine Neuinstallation aus. Aktuelle Versionen: https://files.minecraftforge.net |
-| `memory` | RAM für Java (`-Xms` und `-Xmx`), z.B. `4G`. |
+| `memory` | RAM für Java (`-Xms` und `-Xmx`), z.B. `2G` (Standard, passend für Pi 4 GB). |
 | `motd` | Text in der Serverliste. |
 | `max_players` | Maximale Spielerzahl. |
 | `difficulty` | `peaceful`, `easy`, `normal`, `hard`. |
